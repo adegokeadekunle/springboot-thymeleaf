@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Switch Case</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <h1>Thymeleaf switch case</h1>
+        <h4 th:utext="${user.username}"></h4>
+        <div th:switch="${user.role}">
+            <p th:case="'ADMIN'">User is an Admin</p>
+            <p th:case="'MANAGER'">User is a Manager </p>
+            <p th:case="'USER'">User is a guest</p>
+<!--            for default case-->
+            <p th:case="*">User is some other Guest</p>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Iteration</title>
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+<div class="row">
+    <h1>Employees</h1>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Employee First Name</th>
+                <th>Employee Last Name</th>
+                <th>Employee Email Address</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="employee : ${employees}">
+                <td th:text="${employee.getEmployeeId()}"></td>
+                <td th:text="${employee.getEmployeeFirstName()}"></td>
+                <td th:text="${employee.getEmployeeLastName()}"></td>
+                <td th:text="${employee.getEmail()}"></td>
+            </tr>
+<!--            this section is used we used stat to carry out different functions thymeleaf allows such as count, even, odd, first, last, index etc-->
+            <tr th:each="employee : ${employees}" th:style="${employeeStat.odd} ? 'font-weight:bold'" th:alt-title="${employeeStat.even} ? even:odd">
+                <td th:text="${employee.getEmployeeId()}"></td>
+                <td th:text="${employee.getEmployeeFirstName()}"></td>
+                <td th:text="${employee.getEmployeeLastName()}"></td>
+                <td th:text="${employee.getEmail()}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
